@@ -1,70 +1,67 @@
 * text=auto
+ 
+*.cs           text diff=csharp
+*.fs           text
+*.sln          text eol=crlf merge=union
+*.csproj       text eol=crlf merge=union
+*.vbproj       text eol=crlf merge=union
+*.vcxproj      text eol=crlf merge=union
+*.vcproj       text eol=crlf merge=union
+*.dbproj       text eol=crlf merge=union
+*.fsproj       text eol=crlf merge=union
+*.lsproj       text eol=crlf merge=union
+*.wixproj      text eol=crlf merge=union
+*.modelproj    text eol=crlf merge=union
+*.sqlproj      text eol=crlf merge=union
+*.wmaproj      text eol=crlf merge=union
+*.xproj        text eol=crlf merge=union
+*.vcxitems     text eol=crlf merge=union
+ 
+*.msbuild      text
+*.build        text
+*.targets      text
+*.props        text
+*.config       text
+*.conf         text
+*.cscfg        text
+*.csdef        text
+*.xml          text
+*.js           text
+*.ps1          text
+ 
+*.DotSettings  text eol=lf
+*.sh           text eol=lf
+ 
+# Documents
+*.doc   diff=astextplain
+*.DOC   diff=astextplain
+*.docx  diff=astextplain
+*.DOCX  diff=astextplain
+*.dot   diff=astextplain
+*.DOT   diff=astextplain
+*.pdf   diff=astextplain
+*.PDF   diff=astextplain
+*.rtf   diff=astextplain
+*.RTF   diff=astextplain
+*.md    text
+*.adoc  text
+*.csv   text
+*.tab   text
+*.tsv   text
+*.sql   text
 
-.gitattributes text
-.gitignore text
-
-# not using merge=union here since we prefer a merge conflict over a bad union merge
-# (less convenient but less risky)
-*.csproj text
-*.vcxproj text
-*.vcxproj.filters text
-*.vbproj text
-*.fsproj text
-*.dbproj text
-*.sln text eol=crlf
-*.bat text eol=crlf
-
-*.cs text diff=csharp
-*.msbuild text
-*.targets text
-*.proj text
-*.props text
-*.fxcop text
-*.ruleset text
-*.config text
-*.conf text
-*.xml text
-*.xsd text
-*.xsl text
-*.xaml text
-*.js text
-*.ps1 text
-*.txt text
-*.t4 text
-*.tt text
-*.ini text
-*.cscfg text
-*.csdef text
-*.py text
-*.nunit text
-*.inf text
-*.cpp text
-*.h text
-*.rc text
-*.rc2 text
-
-*.DotSettings text eol=lf
-*.sh text eol=lf
-
-*.zip binary
-*.tar binary
-*.export binary
-*.baml binary
-*.m binary
-*.mat binary
-*.db binary
-*.sdf binary
-*.sys binary
-*.chm binary
-
-*.jpg binary
-*.png binary
-*.gif binary
-*.ico binary
-*.bmp binary
-
-*.doc diff=astextplain
-*.docx diff=astextplain
-*.dot diff=astextplain
-*.pdf diff=astextplain
-*.rtf diff=astextplain
+ 
+# Graphics
+*.png  binary -delta
+*.jpg  binary -delta
+*.jpeg binary -delta
+*.gif  binary -delta
+*.tif  binary -delta
+*.tiff binary -delta
+*.ico  binary -delta
+*.svg  binary -delta
+*.eps  binary -delta
+ 
+# Databases
+*.sdf     binary -delta
+*.sqlite  binary -delta
