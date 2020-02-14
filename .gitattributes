@@ -1,0 +1,70 @@
+* text=auto
+
+.gitattributes text
+.gitignore text
+
+# not using merge=union here since we prefer a merge conflict over a bad union merge
+# (less convenient but less risky)
+*.csproj text
+*.vcxproj text
+*.vcxproj.filters text
+*.vbproj text
+*.fsproj text
+*.dbproj text
+*.sln text eol=crlf
+*.bat text eol=crlf
+
+*.cs text diff=csharp
+*.msbuild text
+*.targets text
+*.proj text
+*.props text
+*.fxcop text
+*.ruleset text
+*.config text
+*.conf text
+*.xml text
+*.xsd text
+*.xsl text
+*.xaml text
+*.js text
+*.ps1 text
+*.txt text
+*.t4 text
+*.tt text
+*.ini text
+*.cscfg text
+*.csdef text
+*.py text
+*.nunit text
+*.inf text
+*.cpp text
+*.h text
+*.rc text
+*.rc2 text
+
+*.DotSettings text eol=lf
+*.sh text eol=lf
+
+*.zip binary
+*.tar binary
+*.export binary
+*.baml binary
+*.m binary
+*.mat binary
+*.db binary
+*.sdf binary
+*.sys binary
+*.chm binary
+
+*.jpg binary
+*.png binary
+*.gif binary
+*.ico binary
+*.bmp binary
+
+*.doc diff=astextplain
+*.docx diff=astextplain
+*.dot diff=astextplain
+*.pdf diff=astextplain
+*.rtf diff=astextplain
