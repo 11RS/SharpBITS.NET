@@ -99,6 +99,65 @@ namespace SharpBits.Base
         }
         #endregion
 
+        
+        public uint SecurityFlags
+        {
+            get
+            {
+                uint flags=0;
+                try
+                {
+                    if (this.job3 != null)// only supported from IBackgroundCopyJob3 and above
+                    {
+                        var httpOptions = this.job3 as IBackgroundCopyJobHttpOptions;
+                        if (httpOptions != null)
+                        {
+                            httpOptions.GetSecurityFlags(out flags);
+                        }
+                        else
+                        {
+                            throw new NotSupportedException("IBackgroundCopyJobHttpOptions");
+                        }
+                    }
+                    else
+                    {
+                        throw new NotSupportedException("IBackgroundCopyJob3");
+                    }
+                }
+                catch (COMException exception)
+                {
+                    manager.PublishException(this, exception);
+                }
+
+                return flags;
+            }
+            set
+            {
+                try
+                {
+                    if (this.job3 != null)// only supported from IBackgroundCopyJob3 and above
+                    {
+                        var httpOptions = this.job3 as IBackgroundCopyJobHttpOptions;
+                        if (httpOptions != null)
+                        {
+                            httpOptions.SetSecurityFlags(value);
+                        }
+                        else
+                        {
+                            throw new NotSupportedException("IBackgroundCopyJobHttpOptions");
+                        }
+                    }
+                    else
+                    {
+                        throw new NotSupportedException("IBackgroundCopyJob3");
+                    }
+                }
+                catch (COMException exception)
+                {
+                    manager.PublishException(this, exception);
+                }
+            }
+        }
         #endregion
     }
 }
