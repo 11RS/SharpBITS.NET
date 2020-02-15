@@ -20,6 +20,8 @@ using System;
 using System.Runtime.InteropServices;
 using System.Security.Permissions;
 
+#pragma warning disable CA1712 // Do not prefix enum values with type name
+
 namespace SharpBits.Base
 {
 	// InteropBits.cs
@@ -1975,6 +1977,33 @@ namespace SharpBits.Base
         /// </summary>
         public ulong Length;
     }
-    #endregion
+	#endregion
 
+    #region IBackgroundCopyJobHttpOptions
+	[Guid("F1BD1079-9F01-4BDC-8036-F09B70095066")]
+    [InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
+    [ComConversionLoss]
+    [ComImport]
+    public interface IBackgroundCopyJobHttpOptions
+    {
+        void SetClientCertificateByID(
+          [MarshalAs(UnmanagedType.LPWStr), In] string StoreName,
+          [In] ref byte pCertHashBlob);
+
+        void SetClientCertificateByName(
+          [MarshalAs(UnmanagedType.LPWStr), In] string StoreName,
+          [MarshalAs(UnmanagedType.LPWStr), In] string SubjectName);
+        void RemoveClientCertificate();
+        void GetClientCertificate(
+          [MarshalAs(UnmanagedType.LPWStr)] out string pStoreName,
+          [Out] IntPtr ppCertHashBlob,
+          [MarshalAs(UnmanagedType.LPWStr)] out string pSubjectName);
+        void SetCustomHeaders([MarshalAs(UnmanagedType.LPWStr), In] string RequestHeaders);
+        void GetCustomHeaders([MarshalAs(UnmanagedType.LPWStr)] out string pRequestHeaders);
+        void SetSecurityFlags([In] uint Flags);
+        void GetSecurityFlags(out uint pFlags);
+	}
+    #endregion
 }
+
+#pragma warning restore CA1712 // Do not prefix enum values with type name
